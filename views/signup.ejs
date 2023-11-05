@@ -1,0 +1,64 @@
+<%- include('layout/header' , {page : 'index'}) -%>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Signup</h6>
+        </div>
+        <div class="row g-4">        
+            <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                <h1 class="m-5">Sign Up</h1>
+                <form action="/signup" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="fname" placeholder="Your First Name" name="first_name">
+                                <label for="fname">Your First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="lname" placeholder="Your Last Name" name="last_name">
+                                <label for="lname">Your Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" name="email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="phone" placeholder="Your Phone No." name="phone">
+                                <label for="phone">Your Phone No.</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="Password" class="form-control" id="password" placeholder="Your Password" name="password">
+                                <label for="password">Your Password</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="Password" class="form-control" id="cpassword" placeholder="Confirm Password" name="cpassword">
+                                <label for="cpassword">Confirm Password</label>
+                            </div>
+                        </div>
+                        <p class="text-center m-0 mt-3">If you have already account click here for <a href="/login">Login</a></p>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="https://st3.depositphotos.com/11233746/17047/i/450/depositphotos_170474132-stock-photo-happy-schoolgirl-with-books.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+<%- include('layout/footer') -%>

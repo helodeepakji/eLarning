@@ -1,0 +1,41 @@
+<%- include('layout/header' , {page : 'index'}) -%>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Login</h6>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <img src="https://st3.depositphotos.com/11233746/17047/i/450/depositphotos_170474132-stock-photo-happy-schoolgirl-with-books.jpg" alt="">
+            </div>
+            <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                <h1 class="m-5">Login Now</h1>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="Password" class="form-control" id="Password" placeholder="Your Password">
+                                <label for="Password">Password</label>
+                            </div>
+                        </div>
+                        <p class="text-center m-0 mt-3">If you have no account click here for <a href="/signup">signup</a></p>
+                        <p class="text-center m-0"><a href="/signup">Forget Password</a></p>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+
+<%- include('layout/footer') -%>

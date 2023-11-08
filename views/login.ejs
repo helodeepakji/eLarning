@@ -11,17 +11,17 @@
             </div>
             <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                 <h1 class="m-5">Login Now</h1>
-                <form>
+                <form action="/login" method="post">
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" name="email" required>
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input type="Password" class="form-control" id="Password" placeholder="Your Password">
+                                <input type="Password" class="form-control" id="Password" placeholder="Your Password" name="password" required>
                                 <label for="Password">Password</label>
                             </div>
                         </div>

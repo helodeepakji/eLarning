@@ -1,0 +1,71 @@
+<%- include('layout/header' , {page : 'courses' }) -%>
+    <style>
+        .player {
+            display: flex;
+        }
+
+        .box {
+            margin: 20px;
+            padding: 10px;
+            background: gray;
+        }
+
+        .list {
+            width: 100%;
+        }
+    </style>
+    <div class="container-fluid bg-primary py-5 mb-5 page-header"
+        style="background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(<%= result.image %>);">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">
+                        <%= result.name %>
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Courses</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">
+                                <%= result.name %>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="player">
+        <video id="my-video" controls preload="auto" width="640" height="264" >
+            <source id="video_source" src="/video/test.mp4" type="video/mp4" />
+        </video>
+        <div class="list">
+            <div class="box" onclick="playVideo('/video/test.mp4')">
+                <img src="<%= result.image %>" width="200px" alt="" >
+                <p>Part 1</p>
+            </div>
+            <div class="box" onclick="playVideo('/video/Reels (1).mp4')">
+                <img src="<%= result.image %>" width="200px" alt="" >
+                <p>Part 2</p>
+            </div>
+            <div class="box"  onclick="playVideo('/video/Reels (2).mp4')">
+                <img src="<%= result.image %>" width="200px" alt="">
+                <p>Part 3</p>
+            </div>
+        </div>
+    </div>
+
+    <%- include('layout/footer') -%>
+    <script>
+        function playVideo(src){
+            console.log(src);
+            var video = document.getElementById('my-video');
+            if (video) {
+                $('#video_source').attr('src', src);
+                video.load();
+                video.play(); 
+            } else {
+                console.error("Video element not found");
+            }
+        }
+    </script>

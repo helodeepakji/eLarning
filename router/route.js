@@ -2,8 +2,9 @@ const express = require('express');
 const route = express.Router();
 const Categories = require('../model/categories');
 const Course = require('../model/course');
-const Contact = require('../model/contact');
-const User = require('../model/users');
+const protect = require('../middleware/protect');
+const {viewContact, insertContact} = require('../controller/ContactControlller');
+const { insertUser, loginUesr, logOutUesr , viewLogin , viewSignup} = require('../controller/LoginController');
 
 route.get('',(req,res) => {
     Categories.allCategories((err,results)=>{
@@ -24,17 +25,9 @@ route.get('/category/:id',(req,res) => {
     });
 })
 
-route.get('/contact',(req,res) => {
-    res.render('contact');
-})
+route.get('/contact',viewContact)
 
-route.post('/contact',(req,res) => {
-    Contact.SaveContact(req.body,(err,results) => {
-        if(!err){
-            res.render('contact',{status : 'Successfull Send Request'});
-        }
-    });
-})
+route.post('/contact',insertContact)
 
 route.get('/about',(req,res) => {
     res.render('about');
@@ -45,34 +38,29 @@ route.get('/courses',(req,res) => {
 })
 
 
-route.get('/login',(req,res) => {
-    res.render('login')
-})
+route.get('/login', viewLogin)
 
-route.get('/signup',(req,res) => {
-    res.render('signup')
-})
+route.post('/login',loginUesr)
 
-route.post('/signup',(req,res) => {
-    if(req.body.password == req.body.cpassword){
-        const user = {
-            first_name : req.body.first_name,
-            last_name : req.body.last_name,
-            email : req.body.email,
-            phone : req.body.phone,
-            password : req.body.password,
-        };
-        User.SaveUser(user,(err,result) => {
-            if(!err){
-                res.redirect('/login');
-            }else{
-                console.log(err);
-            }
-        });
-    }else{
-        res.send('Password is not match');
+route.get('/logout', logOutUesr)
+
+route.get('/profile', (req, res) => {
+    if (req.session.userId) {
+        res.send('User is authenticated' + req.session.userId);
+    } else {
+        res.status(401).send('User is not authenticated');
     }
-})
+});
 
+route.get('/signup',viewSignup)
+
+route.post('/signup',insertUser)
+
+route.get('/course-details/:id',protect,(req,res) => {
+    var id = req.params.id;
+    Course.Course(id , (err,result) => {
+        res.render('course-details',{result});
+    });
+})
 
 module.exports = route;

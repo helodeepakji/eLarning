@@ -14,6 +14,18 @@ User.User = (id, callback) => {
     });
 };
 
+User.UserByPhone = (phone, callback) => {
+    connection.query('SELECT * FROM `users` WHERE phone = ?', phone, (err, results, fields) => {
+        callback(err, results[0]);
+    });
+};
+
+User.UserByEmail = (email, callback) => {
+    connection.query('SELECT * FROM `users` WHERE email = ?', email, (err, results, fields) => {
+        callback(err, results[0]);
+    });
+};
+
 User.SaveUser = (user, callback) => {
     connection.query('INSERT INTO `users` SET ?', user, (err, results, fields) => {
         callback(err, results[0]);
